@@ -3,18 +3,21 @@
     <!-- <img alt="Vue logo" src="./assets/logo.png"> -->
     <!-- <HelloWorld msg="Welcome to Your Vue.js App"/> -->
     <NavBarHeader/> 
+    <Hero/>
   </div>
 </template>
 
 <script>
 //import HelloWorld from './components/HelloWorld.vue'
 import NavBarHeader from './components/NavBarHeader.vue'
+import Hero from './components/Hero.vue'
 
 export default {
   name: 'App',
   components: {
     // HelloWorld,
-    NavBarHeader
+    NavBarHeader,
+    Hero
   },
   title: 'OKRA'
 }
