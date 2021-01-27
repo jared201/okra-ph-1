@@ -4,6 +4,9 @@
     <!-- <HelloWorld msg="Welcome to Your Vue.js App"/> -->
     <NavBarHeader/> 
     <Hero/>
+    <BuyButton/>
+    <MainBody/>
+    
   </div>
 </template>
 
@@ -11,13 +14,16 @@
 //import HelloWorld from './components/HelloWorld.vue'
 import NavBarHeader from './components/NavBarHeader.vue'
 import Hero from './components/Hero.vue'
-
+import MainBody from './components/MainBody.vue'
+import BuyButton from './components/BuyButton.vue'
 export default {
   name: 'App',
   components: {
     // HelloWorld,
     NavBarHeader,
-    Hero
+    Hero,
+    MainBody,
+    BuyButton
   },
   title: 'OKRA'
 }
