@@ -6,7 +6,7 @@
     <Hero/>
     <BuyButton/>
     <MainBody/>
-    
+    <nav-footer/>
   </div>
 </template>
 
@@ -16,6 +16,8 @@ import NavBarHeader from './components/NavBarHeader.vue'
 import Hero from './components/Hero.vue'
 import MainBody from './components/MainBody.vue'
 import BuyButton from './components/BuyButton.vue'
+import NavFooter from './components/NavFooter.vue'
+
 export default {
   name: 'App',
   components: {
@@ -23,7 +25,8 @@ export default {
     NavBarHeader,
     Hero,
     MainBody,
-    BuyButton
+    BuyButton,
+    NavFooter
   },
   title: 'OKRA'
 }

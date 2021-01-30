@@ -1,32 +1,44 @@
 <template>
-        <div class="card">
-            <div class="card-image">
-                <figure class="image is-4by3">
-                    <img src="/static/img/placeholder-1280x960.png" alt="Image">
-                </figure>
+    <div class="card">
+    <div class="card-content">
+        <div class="columns">
+            <div class="column">
+                <p class="title is-4">
+                    1 Kgs of Garden Fresh Okra @ P100.00/kilo 
+                </p>
+                <p class="title is-4">
+                    Shipping
+                </p>
+                <p class="title is-4">
+                    Total
+                </p>                
             </div>
-            <div class="card-content">
-                <div class="media">
-                    <div class="media-left">
-                        <figure class="image is-48x48">
-                            <img src="/static/img/placeholder-1280x960.png" alt="Image">
-                        </figure>
-                    </div>
-                    <div class="media-content">
-                        <p class="title is-4">John Smith</p>
-                        <p class="subtitle is-6">@johnsmith</p>
-                    </div>
-                </div>
-
-                <div class="content">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Phasellus nec iaculis mauris. <a>@bulmaio</a>.
-                    <a>#css</a> <a>#responsive</a>
-                    <br>
-                    <small>11:09 PM - 1 Jan 2016</small>
-                </div>
+            <div class="column">
+                <p class="title is-4" align="right">
+                    100.00
+                </p>
+                <p class="title is-4" align="right">
+                    50.00
+                </p>
+                <p class="title is-4" align="right">
+                    150.00
+                </p>                
             </div>
-        </div>    
+        </div>
+        
+      
+    </div>
+        <footer class="modal-card-foot">
+            <b-button
+                label="GCash"
+                @click="close" />
+            <b-button
+                label="Paypal"
+                type="is-info" 
+                @click="clickMe"
+                />
+        </footer>
+    </div>    
 </template>
 <script>
 export default {
