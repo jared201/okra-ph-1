@@ -10,9 +10,11 @@
                     </header>
                     <section class="modal-card-body">
                        <b-field label="Name" label-position="on-border">
-                            <b-input 
+                            <b-input id="name"
+                                ref="name"
                                 placeholder="Your Name" 
                                 :value="name"
+                                v-model="myname"
                                 >
                             </b-input>
                         </b-field>
@@ -78,6 +80,8 @@ export default {
     },
     methods: {
         clickMe() {
+            
+            //TODO use VeeValidate to validate input entries
             this.$buefy.modal.open({
                 parent: this,
                 component: PaymentModal,
@@ -91,9 +95,11 @@ export default {
             this.$parent.close()
         }
     },
+    
     data () {
         return {
             isComponentModalActive: false,
+            myname: ''
  
         }
     }
