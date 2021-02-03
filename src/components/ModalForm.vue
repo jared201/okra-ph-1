@@ -8,49 +8,78 @@
                             class="delete"
                             @click="close"/>
                     </header>
+                    <ValidationObserver ref="observer" v-slot="{ handleSubmit }">
                     <section class="modal-card-body">
-                       <b-field label="Name" label-position="on-border">
-                            <b-input id="name"
-                                ref="name"
-                                placeholder="Your Name" 
-                                :value="name"
-                                v-model="myname"
+                       <ValidationProvider rules="required" name="Name" v-slot="{ errors  }">
+                        <b-field label="Name" label-position="on-border"
+                               :type="{'is-danger': errors[0]}"
+                               :message="errors"> 
+                            <b-input 
+                                type="text"
+                                ref="name"                            
+                                placeholder="Your Name"                                 
+                                v-model="name"
                                 >
                             </b-input>
                         </b-field>
-                        <b-field label="Email" label-position="on-border">
+                       </ValidationProvider> 
+                       <ValidationProvider rules="required|email" name="Email" v-slot="{errors, valid}">
+                        <b-field label="Email" label-position="on-border"
+                            :type="{'is-danger': errors[0], 'is-success': valid}"
+                            :message="errors"
+                            >
                             <b-input
-                                type="email"
-                                :value="email"
+                                type="email"                                
                                 placeholder="Your email"
-                                required>
+                                v-model="email"
+                                >
                             </b-input>
                         </b-field>
-                        <b-field label="Mobile Number" label-position="on-border">
-                            <b-input                                 
-                                :value="mobile"
+                        </ValidationProvider>
+                        <ValidationProvider rules="required" name="Mobile" v-slot="{ errors  }">
+                        <b-field label="Mobile Number" label-position="on-border"
+                            :type="{'is-danger': errors[0], 'is-success': valid}"
+                            :message="errors"
+                            >
+                            <b-input                                                                
                                 placeholder="+639171234567"
-                                required>
+                                v-model="mobile"
+                                >
+                                
                             </b-input>
                         </b-field>                        
-                        <b-field>
+                        </ValidationProvider>
+                        <ValidationProvider rules="required|positive" name="Weight" v-slot="{ errors  }">
+                        <b-field 
+                            label="Weight"
+                            label-position="on-border"
+                            :type="{'is-danger': errors[0], 'is-success': valid}"
+                            :message="errors"
+                            >
                             <b-input placeholder="Enter amount in kilos"
                                 type="number"
                                 min="1"
-                                max="1000">
+                                max="1000"
+                                v-model="value">
                             </b-input>
                         </b-field>
-                        <b-field label="Shipping Address">
+                        </ValidationProvider>
+                        <ValidationProvider rules="required" name="Address" v-slot="{errors, valid}">
+                        <b-field label="Shipping Address" label-position="on-border"
+                            :type="{'is-danger': errors[0], 'is-success': valid}"
+                            :message="errors"
+                            >
                             <b-input
-                                type="textarea"
-                                :value="password" 
+                                type="textarea"                                
                                 placeholder="Enter your Complete Shipping Address"
-                                required>
+                                v-model="address"
+                                >
                             </b-input>
                         </b-field>
-
+                        </ValidationProvider>
                         
                     </section>
+                    
                     <footer class="modal-card-foot">
                         <b-button
                             label="Close"
@@ -58,26 +87,26 @@
                         <b-button
                             label="Click for Total Pricing and Payment"
                             type="is-info" 
-                            @click="clickMe"
+                            @click="handleSubmit(clickMe)"
                             />
                     </footer>
+                    </ValidationObserver>
                 </div>
             </form>
               
 </template>
 <script>
 import PaymentModal from './PaymentModal.vue';
+import { ValidationObserver, ValidationProvider } from "vee-validate";
 
 export default {
     
     name: 'ModalForm',
-    props: {
-        name: String,
-        email: String,
-        password: String,
-        mobile: String,
-        canCancel: Boolean
+    components: {
+        ValidationObserver,
+        ValidationProvider
     },
+    
     methods: {
         clickMe() {
             
@@ -90,6 +119,7 @@ export default {
                 trapFocus: true
             })           
             this.$parent.close();
+            //console.log('valid(?)')
         },
         close() {
             this.$parent.close()
@@ -99,7 +129,7 @@ export default {
     data () {
         return {
             isComponentModalActive: false,
-            myname: ''
+            name: ''
  
         }
     }

@@ -4,6 +4,7 @@ import Buefy from 'buefy'
 import 'buefy/dist/buefy.css'
 
 import titleMixin from './mixins/titleMixin'
+import "./vee-validate"
 
 Vue.use(Buefy);
 Vue.mixin(titleMixin)
