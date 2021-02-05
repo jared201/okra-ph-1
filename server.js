@@ -13,4 +13,21 @@ express()
         console.log("Entry point");
         res.render('index.html');
     })
+    .get('/test_api', (req, res)=>{
+        console.log("test_api");
+        res.status(200).send('OK');
+    })
+    .post('/test_add_orders', (req, res)=> {
+        let body = req.body;
+        const oc = require('./server/orderscontroller');
+        oc.addOrders(body, req, (rowcount, errorMsg)=> {
+            if (rowcount > 0){
+                res.status(200).send('Orders submitted pending payment confirmation');
+            } else {
+                if (errorMsg != undefined){
+                    res.status(404).send('Orders not sent ' + errorMsg);
+                }
+            }
+        });
+    })
     .listen(PORT, ()=> console.log(`Listening on ${ PORT }`));
