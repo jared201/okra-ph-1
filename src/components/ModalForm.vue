@@ -90,6 +90,7 @@
                             @click="handleSubmit(clickMe)"
                             />
                     </footer>
+                    <div ref="key">{{key}}</div>
                     </ValidationObserver>
                 </div>
             </form>
@@ -118,7 +119,8 @@ export default {
                 trapFocus: true
             })           
             this.$parent.close();
-            //console.log('valid(?)')
+            
+            //console.log('key: ' + this.$refs.key.innerHTML);
         },
         close() {
             this.$parent.close()
