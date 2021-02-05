@@ -60,7 +60,7 @@
                                 type="number"
                                 min="1"
                                 max="1000"
-                                v-model="value">
+                                v-model="weight">
                             </b-input>
                         </b-field>
                         </ValidationProvider>
@@ -106,7 +106,9 @@ export default {
         ValidationObserver,
         ValidationProvider
     },
-    
+    props: {
+        key: 'CHO0603'
+    },
     methods: {
         clickMe() {
             

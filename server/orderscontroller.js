@@ -3,9 +3,11 @@ exports.addOrders = function (body, req, callback){
     const db = new dbPool();
     const dataQuery = {};
     const secret = process.env.SECRET;
+    let bodySecret = body.secret;
+    
     dataQuery.text = 'INSERT INTO okra_orders (name, email, mobile, weight, address, secret,created_on) ' +
         'VALUES ($1, $2, $3, $4, $5, $6, $7);'
-    dataQuery.values = [body.name, body.email, body.mobile, body.weight, body.address, secret, new Date()];
+    dataQuery.values = [body.name, body.email, body.mobile, body.weight, body.address, body.secret, new Date()];
     (async ()=> {
         console.log("Connecting to DB...");
         const client = await db.connect();

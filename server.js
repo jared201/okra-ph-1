@@ -25,7 +25,7 @@ express()
                 res.status(200).send('Orders submitted pending payment confirmation');
             } else {
                 if (errorMsg != undefined){
-                    res.status(404).send('Orders not sent ' + errorMsg);
+                    res.status(404).send('Orders not sent');
                 }
             }
         });
