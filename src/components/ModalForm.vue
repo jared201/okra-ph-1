@@ -105,10 +105,7 @@ export default {
     components: {
         ValidationObserver,
         ValidationProvider
-    },
-    props: {
-        key: 'CHO0603'
-    },
+    },    
     methods: {
         clickMe() {
             
@@ -131,8 +128,8 @@ export default {
     data () {
         return {
             isComponentModalActive: false,
-            name: ''
- 
+            name: '',
+            key: 'CHO0603'
         }
     }
 
