@@ -1,5 +1,8 @@
-<template>
-    <div class="container">
+
+<template>    
+    <div class="container" id="body">
+        <hero/>
+        <buy-button/>
         <div class="columns">
             
             <div class="column">
@@ -13,7 +16,13 @@
     </div>
 </template>
 <script>
+import Hero from "./Hero.vue"
+import BuyButton from "./BuyButton.vue"
 export default {
-    name: 'Body'
+    name: 'Body',
+    components: {
+        Hero,
+        BuyButton
+    }
 }
 </script>

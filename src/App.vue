@@ -3,9 +3,7 @@
     <!-- <img alt="Vue logo" src="./assets/logo.png"> -->
     <!-- <HelloWorld msg="Welcome to Your Vue.js App"/> -->
     <NavBarHeader/> 
-    <Hero/>
-    <BuyButton/>
-    <MainBody/>
+    <router-view/>
     <nav-footer/>
   </div>
 </template>
@@ -13,9 +11,6 @@
 <script>
 //import HelloWorld from './components/HelloWorld.vue'
 import NavBarHeader from './components/NavBarHeader.vue'
-import Hero from './components/Hero.vue'
-import MainBody from './components/MainBody.vue'
-import BuyButton from './components/BuyButton.vue'
 import NavFooter from './components/NavFooter.vue'
 
 export default {
@@ -23,9 +18,6 @@ export default {
   components: {
     // HelloWorld,
     NavBarHeader,
-    Hero,
-    MainBody,
-    BuyButton,
     NavFooter
   },
   title: 'OKRA'

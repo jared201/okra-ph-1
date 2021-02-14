@@ -9,17 +9,17 @@
             </b-navbar-item>
         </template>
         <template #start>
-            <b-navbar-item href="#">
-                Home
+            <b-navbar-item><router-link to="/">
+                Home</router-link>
             </b-navbar-item>
-            <b-navbar-item href="#">
+            <b-navbar-item href="/">
                 Buy OKRA NOW
             </b-navbar-item>
             <b-navbar-dropdown label="Info">
-                <b-navbar-item href="#">
-                    About
+                <b-navbar-item><router-link to="/about">
+                    About</router-link> 
                 </b-navbar-item>
-                <b-navbar-item href="#">
+                <b-navbar-item href="/">
                     Contact
                 </b-navbar-item>
             </b-navbar-dropdown>
